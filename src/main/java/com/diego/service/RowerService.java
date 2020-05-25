@@ -44,8 +44,8 @@ public class RowerService {
 
 //    @PostConstruct
 //    public void populateTestData() {
-//        if (rowerRepository.count() == 0) {
-//            rowerRepository.saveAll(Stream.of("Varsity 8", "Frosh 4+", "JV 8", "Lightweight 2-").map(Boat::new).collect(Collectors.toList()));
+//        if (boatRepository.count() == 0) {
+//            boatRepository.saveAll(Stream.of("Varsity 8", "Frosh 4+", "JV 8", "Lightweight 2-").map(Boat::new).collect(Collectors.toList()));
 //        }
 //
 //        if (rowerRepository.count() == 0) {
