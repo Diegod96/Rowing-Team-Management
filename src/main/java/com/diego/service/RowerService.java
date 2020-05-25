@@ -25,6 +25,14 @@ public class RowerService {
         return rowerRepository.findAll();
     }
 
+    public List<Rower> findAll(String filterText) {
+        if (filterText == null || filterText.isEmpty()) {
+            return rowerRepository.findAll();
+        } else {
+            return rowerRepository.search(filterText);
+        }
+    }
+
     public long count() {
         return rowerRepository.count();
     }
