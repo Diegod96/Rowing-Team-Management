@@ -1,7 +1,8 @@
-package com.diego.ui;
+package com.diego.ui.views.list;
 
 import com.diego.backend.entity.Boat;
 import com.diego.backend.entity.Rower;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
@@ -56,7 +57,7 @@ public class RowerForm extends FormLayout {
         binder.setBean(rower);
     }
 
-    private HorizontalLayout createButtonsLayout() {
+    private Component createButtonsLayout() {
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
         close.addThemeVariants(ButtonVariant.LUMO_TERTIARY);

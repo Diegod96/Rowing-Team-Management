@@ -4,7 +4,9 @@ import com.diego.backend.entity.Boat;
 import com.diego.backend.repository.BoatRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BoatService {
@@ -19,4 +21,11 @@ public class BoatService {
         return boatRepository.findAll();
     }
 
+    public Map<String, Integer> getStats() {
+        HashMap<String, Integer> stats = new HashMap<>();
+        findAll().forEach(boat ->
+                stats.put(boat.getName(), boat.getRowers().size()));
+
+        return stats;
+    }
 }
