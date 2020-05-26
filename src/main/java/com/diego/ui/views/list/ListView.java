@@ -1,22 +1,23 @@
-package com.diego.ui;
+package com.diego.ui.views.list;
 
 import com.diego.backend.entity.Boat;
 import com.diego.backend.entity.Rower;
 import com.diego.service.BoatService;
 import com.diego.service.RowerService;
+import com.diego.ui.MainLayout;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-@Route("")
-@CssImport("./styles/shared-styles.css")
-public class MainView extends VerticalLayout {
+@Route(value = "", layout = MainLayout.class)
+@PageTitle("Rowers | Team Management App")
+public class ListView extends VerticalLayout {
 
     private final RowerForm form;
     Grid<Rower> grid = new Grid<>(Rower.class);
@@ -24,7 +25,7 @@ public class MainView extends VerticalLayout {
     private RowerService rowerService;
 
 
-    public MainView(RowerService rowerService, BoatService boatService) {
+    public ListView(RowerService rowerService, BoatService boatService) {
         this.rowerService = rowerService;
         addClassName("list-view");
         setSizeFull();
