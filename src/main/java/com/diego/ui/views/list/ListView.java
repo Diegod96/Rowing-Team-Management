@@ -14,15 +14,20 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+
+@Component
+@Scope("prototype")
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("Rowers | Team Management App")
 public class ListView extends VerticalLayout {
 
-    private final RowerForm form;
+    RowerForm form;
     Grid<Rower> grid = new Grid<>(Rower.class);
     TextField filterText = new TextField();
-    private RowerService rowerService;
+    RowerService rowerService;
 
 
     public ListView(RowerService rowerService, BoatService boatService) {
@@ -47,13 +52,13 @@ public class ListView extends VerticalLayout {
     }
 
     private void deleteRower(RowerForm.DeleteEvent evt) {
-        rowerService.delete(evt.getContact());
+        rowerService.delete(evt.getRower());
         updateList();
         closeEditor();
     }
 
     private void saveRower(RowerForm.SaveEvent evt) {
-        rowerService.save(evt.getContact());
+        rowerService.save(evt.getRower());
         updateList();
         closeEditor();
     }
