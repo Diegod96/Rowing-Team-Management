@@ -89,7 +89,7 @@ public class RowerForm extends FormLayout {
             this.rower = rower;
         }
 
-        public Rower getContact() {
+        public Rower getRower() {
             return rower;
         }
     }

@@ -1,17 +1,13 @@
 package com.diego.service;
 
-import com.diego.backend.entity.Boat;
 import com.diego.backend.entity.Rower;
 import com.diego.backend.repository.BoatRepository;
 import com.diego.backend.repository.RowerRepository;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class RowerService {
@@ -54,13 +50,15 @@ public class RowerService {
         rowerRepository.save(rower);
     }
 
-    @PostConstruct
-    public void populateTestData() {
-        if (boatRepository.count() == 0) {
-            boatRepository.saveAll(Stream.of("Varsity 8", "Second Varsity 8", "Third Varsity 8", "Junior Varsity 8", "Lightweight 8", "Freshmen/Novice 8", "Varsity 4+", "Junior Varsity 4+", "Freshmen/Novice 4+",  "Lightweight 4+", "Lightweight 4x-", "Varsity 4x-", "Varsity 2-").map(Boat::new).collect(Collectors.toList()));
-        }
-    }
-}
+
+
+//    @PostConstruct
+//    public void populateTestData() {
+//        if (boatRepository.count() == 0) {
+//            boatRepository.saveAll(Stream.of("Varsity 8", "Second Varsity 8", "Third Varsity 8", "Junior Varsity 8", "Lightweight 8", "Freshmen/Novice 8", "Varsity 4+", "Junior Varsity 4+", "Freshmen/Novice 4+",  "Lightweight 4+", "Lightweight 4x-", "Varsity 4x-", "Varsity 2-").map(Boat::new).collect(Collectors.toList()));
+//        }
+//
+//
 //
 //        if (rowerRepository.count() == 0) {
 //            Random r = new Random(0);
@@ -86,3 +84,5 @@ public class RowerService {
 //                            }).collect(Collectors.toList()));
 //        }
 //    }
+//}
+}
