@@ -211,5 +211,58 @@ public Map<String, Integer> getStats() {
 ```
 
 * Login view handles the login page such as layout and adding actions to the login buttons.
+* The Main Layout imports CSS styling and created PWA:
+```
+@PWA(
+        name = "Team Management App",
+        shortName = "TMA",
+        offlineResources = {
+                "./styles/offline.css",
+                "./images/offline.png"
+        },
+        enableInstallPrompt = false
+)
+@CssImport("./styles/shared-styles.css")
+```
+
+## Testing
+* Unit test created with JUnit were developed to test the functionality of the Login Page, List View, and Rower Form.
+* Here is an exmaple of a Unit test for the Rower Form:
+```
+public class RowerFormTest {
+    private List<Boat> boats;
+    private Rower diegoDelgado;
+    private Boat boat1;
+    private Boat boat2;
+
+    @Before
+    public void setupData() {
+        boats = new ArrayList<>();
+        boat1 = new Boat("Varsity 8");
+        boat2 = new Boat("Varsity 4+");
+        boats.add(boat1);
+        boats.add(boat1);
+
+        diegoDelgado = new Rower();
+        diegoDelgado.setFirstName("Diego");
+        diegoDelgado.setLastName("Delgado");
+        diegoDelgado.setEmail("test@test.com");
+        diegoDelgado.setYear(Rower.Year.Senior);
+        diegoDelgado.setBoat(boat2);
+    }
+
+    @Test
+    public void formFieldsPopulated() {
+        RowerForm form = new RowerForm(boats);
+        form.setRower(diegoDelgado);
+        Assert.assertEquals("Diego", form.firstName.getValue());
+        Assert.assertEquals("Delgado", form.lastName.getValue());
+        Assert.assertEquals("test@test.com", form.email.getValue());
+        Assert.assertEquals(boat2, form.boat.getValue());
+        Assert.assertEquals(Rower.Year.Senior, form.year.getValue());
+    }
+ ```
  
- 
+ # TODO:
+ * Work with Spring Security and the database and allow new users to create an account and edit.
+ * Seeing that is more of an Admin kind of application, only a few pre determine users will have edit access while other will have just view access.
