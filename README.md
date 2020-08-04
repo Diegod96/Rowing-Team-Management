@@ -4,6 +4,10 @@
 * There is a dashboard view that produces a piechart of the distribution of rowers per boat.
 * A User can add a rower by clicking the "Add Rower" button and filling out the information.
 
+
+![Rowers-Team-Management-App-Mozil](https://user-images.githubusercontent.com/25403763/89299420-9e422580-d634-11ea-8646-993b63004b1c.gif)
+
+
 ## Code & Resources Used
 * **Java Version:** 12
 * **Maven Verison:** 1.8
